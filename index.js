@@ -4,7 +4,7 @@ import connectDB from "./config/db.js";
 // import mainRoute from "./routes/mainRoute.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-
+import { registerController } from "./Controllers/registerController.js";
 dotenv.config();
 
 connectDB();
@@ -24,6 +24,8 @@ app.use(cors({
 app.get("/", (req, res) => {
     res.send("<h1>Welcome to dice king</h1>");
   });
+
+  app.post("/register", registerController);
 
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
